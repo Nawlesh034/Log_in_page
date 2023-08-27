@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.bg {
+    background: linear-gradient(to top right, #3333cc 0%, #ff99cc 100%);
+    background-size: cover;
+    color: white;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color: #3737a2;
+    margin: 30px 0px;
+}
+
+img {
+    height: 20px;
+    width: 20px;
+    position: relative;
+    top: 5px;
+}
+
+.login {
+
+    border: 2px solid blueviolet;
+    font-family: 'Libre Baskerville', serif;
+    font-family: 'Noto Serif', serif;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Mono', monospace;
+    text-align: center;
+    background-color: currentColor;
+}
+
+.page_1 {
+    margin: 38px 0px;
+    padding: 0px 93px;
+   
+   
+
+}
+#name-field{
+    max-height: 65px;
+    transition: max-height 0.5ms;
+    overflow: hidden;
+}
+
+input {
+    background: transparent;
+    border: 0;
+    outline: 0;
+    padding: 0px 17px;
+
+}
+
+.subMit {
+
+    margin: 9px 0px;
+    padding: 12px 12px;
+    border: none;
+    color: #3737a2;
+    background-color: #ece7e7;
+    border-radius: 20px;
+
+
+}
+#sign-up{
+    background-Color:"rgb(158,78,234)";
+}
+
+.subMit:hover {
+    background-color: rgb(158, 78, 234);
+    cursor: pointer;
+    transition: background-color 1s ease-in-out 0.1ms;
+
+}
+
+.page {
+    display: flex;
+    justify-content: space-around;
+}
+
+.forgot {
+    text-decoration: none;
+}

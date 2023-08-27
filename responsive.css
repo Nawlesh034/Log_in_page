@@ -1,0 +1,23 @@
+@media only screen and (max-width:450px) {
+    .bg {
+        /* background: linear-gradient(to top right, #3333cc 0%, #ff99cc 100%);
+    background-size: cover;
+    color: white; */
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .page_1 {
+        margin: 17px 17px;
+        padding: 0px 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .forgot{
+        padding: 0px 7px;
+    }
+}

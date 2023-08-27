@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Noto+Serif:wght@300&family=Roboto+Mono:wght@500&family=Roboto:wght@500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="responsive.css">
+</head>
+
+<body>
+    <div class="bg">
+        <div class="login">
+            <h1 id="heading">Sign Up</h1>
+            <form name='submit-to-google-sheet' id="myform">
+                <div class="page_1" id="name-field"> <label for="userName"><img src="img/user.png"
+                            alt="user-Name"></label>
+                    <input type="text" name="name" id="Name" placeholder="Enter Name" value="" required>
+
+                </div>
+                <div class="page_1 input-field" id="userName"> <label for="userName"><img src="img/email.png"
+                            alt="email"></label>
+                    <input type="email" name="username" id="userName" placeholder="Enter UserName" value="" required>
+
+
+                </div>
+                <div class="page_1 input-field" id="pass"><label for="password"><img src="img/hidden.png" alt="passWord"
+                            id="toggle"></label>
+                    <input type="password" name="password" id="passWord" placeholder="Enter Password" value="" required>
+                </div>
+                <div class="page">
+                    <p><a href="#" class="forgot">Forgot Password</a></p>
+                    <button class="subMit" id="sign-up" name="submit">Sign Up</button>
+                    <button class="subMit" id="sign-in" name="submit">Sign In</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzUghw3BIn0SBwfw0l6y0LUmKjuz4iydbtVfXx0pvLrO23PENYUO2wnz_w8D2EMhJimcw/exec'
+        const form = document.forms['submit-to-google-sheet']
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            const name = form.querySelector('#Name').value;
+            const email = form.querySelector('#userName').value;
+
+
+            if (name.trim() === '' || email.trim() === '') {
+                alert('All fields are required');
+                return;
+            }
+
+            // Perform more complex validation for email
+            const emailPattern = "/^[^\s@]+@[^\s@]+\.[^\s@]+$/";
+            if (!emailPattern.test(email)) {
+                alert('Invalid email format');
+                return;
+            }
+
+            // Form data is valid, proceed with fetch
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    if (response.ok) {
+                        console.log('Success!', response);
+                        form.reset(); // Clear the form after successful submission
+                    } else {
+                        console.error('Error!', response);
+                    }
+                })
+                .catch(error => console.error('Error!', error.message));
+
+        });
+
+
+    </script>
+</body>
+
+</html>
