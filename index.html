@@ -52,21 +52,7 @@
 
         form.addEventListener('submit', e => {
             e.preventDefault()
-            const name = form.querySelector('#Name').value;
-            const email = form.querySelector('#userName').value;
-
-
-            if (name.trim() === '' || email.trim() === '') {
-                alert('All fields are required');
-                return;
-            }
-
-            // Perform more complex validation for email
-            const emailPattern = "/^[^\s@]+@[^\s@]+\.[^\s@]+$/";
-            if (!emailPattern.test(email)) {
-                alert('Invalid email format');
-                return;
-            }
+           
 
             // Form data is valid, proceed with fetch
             fetch(scriptURL, { method: 'POST', body: new FormData(form) })
